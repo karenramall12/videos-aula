@@ -14,9 +14,24 @@
             <div class="video-row" id="continue-watching"></div>
         </div>
 
-        <h2>Todos os Vídeos</h2>
+        <h2>Bloco 1: Introdução ao Sistema</h2>
         <div class="video-section">
-            <div class="video-row" id="all-videos"></div>
+            <div class="video-row" id="bloco-1"></div>
+        </div>
+
+        <h2>Bloco 2: Pontuação e Regras</h2>
+        <div class="video-section">
+            <div class="video-row" id="bloco-2"></div>
+        </div>
+
+        <h2>Bloco 3: Avançando no Curso</h2>
+        <div class="video-section">
+            <div class="video-row" id="bloco-3"></div>
+        </div>
+
+        <h2>Bloco 4: Exemplos Práticos</h2>
+        <div class="video-section">
+            <div class="video-row" id="bloco-4"></div>
         </div>
     </div>
     
@@ -26,8 +41,17 @@
                 "tgbNymZ7vqY", "kJQP7kiw5Fk", "hY7m5jjJ9mM", "dQw4w9WgXcQ", "9bZkp7q19f0",
                 "L_jWHffIx5E", "OPf0YbXqDm0", "fRh_vgS2dFE", "M11SvDtPBhA", "3JZ_D3ELwOQ",
                 "RgKAFK5djSk", "YQHsXMglC9A", "pRpeEdMmmQ0", "UceaB4D0jpo", "5NV6Rdv1a3I",
-                "ZXsQAXx_ao0", "xTlNMmZKwpA", "8j741TUIET0", "TcMBFSGVi1c", "d-diB65scQU"
+                "ZXsQAXx_ao0", "xTlNMmZKwpA", "8j741TUIET0", "TcMBFSGVi1c", "d-diB65scQU",
+                "xTlNMmZKwpA", "8j741TUIET0", "TcMBFSGVi1c", "d-diB65scQU", "RgKAFK5djSk",
+                "pRpeEdMmmQ0", "UceaB4D0jpo", "5NV6Rdv1a3I", "ZXsQAXx_ao0", "xTlNMmZKwpA"
             ];
+
+            const blocos = {
+                "bloco-1": videos.slice(0, 10),
+                "bloco-2": videos.slice(10, 20),
+                "bloco-3": videos.slice(20, 30),
+                "bloco-4": videos.slice(30, 40),
+            };
 
             function createVideoElement(videoId) {
                 const div = document.createElement("div");
@@ -36,9 +60,11 @@
                 return div;
             }
 
-            const allVideosContainer = document.getElementById("all-videos");
-            videos.forEach(videoId => {
-                allVideosContainer.appendChild(createVideoElement(videoId));
+            Object.keys(blocos).forEach(bloco => {
+                const container = document.getElementById(bloco);
+                blocos[bloco].forEach(videoId => {
+                    container.appendChild(createVideoElement(videoId));
+                });
             });
         });
 
@@ -60,11 +86,10 @@
 
             function drawMatrix() {
                 ctx.fillStyle = "rgba(0, 0, 0, 0.1)"; // Fundo preto transparente
-ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-ctx.fillStyle = "#ff0000"; // Letras vermelhas
-ctx.font = `${fontSize}px monospace`;
-
+                ctx.fillStyle = "#ff0000"; // Letras vermelhas
+                ctx.font = `${fontSize}px monospace`;
 
                 for (let i = 0; i < drops.length; i++) {
                     const text = letters[Math.floor(Math.random() * letters.length)];

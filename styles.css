@@ -31,6 +31,16 @@ body {
     margin-bottom: 15px;
     color: #00ff00; /* 🔥 Verde estilo Matrix */
     text-transform: uppercase;
+    border-bottom: 2px solid #00ff00;
+    padding-bottom: 5px;
+}
+
+/* Subtítulos dos vídeos */
+.video-item p {
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 5px;
+    color: #bbb;
 }
 
 /* Seções de vídeos */
@@ -48,10 +58,10 @@ body {
 
 /* Estilização dos vídeos */
 .video-item {
-    width: calc(16.66% - 10px); /* 🔥 6 vídeos por fileira no desktop */
+    width: calc(20% - 10px); /* 🔥 5 vídeos por fileira no desktop */
     min-width: 200px;
     background: #111;
-    padding: 5px;
+    padding: 10px;
     border-radius: 8px;
     transition: transform 0.3s;
     aspect-ratio: 16 / 9; /* 🔥 Mantém o formato widescreen */
