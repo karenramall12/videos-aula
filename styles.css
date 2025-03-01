@@ -1,0 +1,89 @@
+/* Fundo com efeito Matrix */
+#matrixCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* 🔥 Mantém o efeito Matrix no fundo */
+    pointer-events: none; /* 🔥 Impede que ele bloqueie cliques */
+}
+
+/* Estilização geral da página */
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container principal */
+.container {
+    position: relative;
+    z-index: 1; /* 🔥 Garante que os vídeos fiquem acima do fundo */
+    padding: 20px;
+}
+
+/* Títulos das etapas */
+.video-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #00ff00; /* 🔥 Verde estilo Matrix */
+    text-transform: uppercase;
+}
+
+/* Seções de vídeos */
+.video-section {
+    margin-bottom: 50px;
+}
+
+/* Configuração das fileiras de vídeos */
+.video-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Estilização dos vídeos */
+.video-item {
+    width: calc(16.66% - 10px); /* 🔥 6 vídeos por fileira no desktop */
+    min-width: 200px;
+    background: #111;
+    padding: 5px;
+    border-radius: 8px;
+    transition: transform 0.3s;
+    aspect-ratio: 16 / 9; /* 🔥 Mantém o formato widescreen */
+}
+
+.video-item:hover {
+    transform: scale(1.05);
+}
+
+.video-item iframe {
+    width: 100%;
+    height: 100%; /* 🔥 Mantém proporção widescreen */
+    border-radius: 5px;
+    border: none;
+}
+
+/* Responsividade para tablets */
+@media (max-width: 1024px) {
+    .video-item {
+        width: calc(25% - 10px); /* 🔥 4 vídeos por fileira */
+    }
+}
+
+/* Responsividade para celulares */
+@media (max-width: 768px) {
+    .video-item {
+        width: calc(33.33% - 10px); /* 🔥 3 vídeos por fileira */
+    }
+}
+
+@media (max-width: 480px) {
+    .video-item {
+        width: 100%; /* 🔥 1 vídeo por fileira */
+    }
+}
